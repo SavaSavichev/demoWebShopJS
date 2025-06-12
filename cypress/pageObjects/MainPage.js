@@ -3,6 +3,7 @@ import ProductPage from "./ProductPage";
 class MainPage {
     visit() {
         cy.visit('/')
+        return this;
     }
 
     getOwnComputerLink = () => 
