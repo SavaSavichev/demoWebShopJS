@@ -6,6 +6,7 @@ import mainPageData from "../../fixtures/pom/mainPageData.json";
 it("Verify Free Shippint is display", () => {
     const mainPage = new MainPage();
 
-    mainPage.visit();
-    mainPage.checkPageTitle(mainPageData.pageTitle);
+    mainPage
+        .visit()
+        .checkPageTitle(mainPageData.pageTitle);
 });
