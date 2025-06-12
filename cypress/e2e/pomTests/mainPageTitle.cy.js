@@ -7,6 +7,5 @@ it("Verify Free Shippint is display", () => {
     const mainPage = new MainPage();
 
     mainPage
-        .visit()
         .checkPageTitle(mainPageData.pageTitle);
 });

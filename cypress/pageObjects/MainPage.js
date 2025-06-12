@@ -1,10 +1,10 @@
 import ProductPage from "./ProductPage";
 
 class MainPage {
-    visit() {
-        cy.visit('/')
-        return this;
-    }
+    // visit() {
+    //     cy.visit('/')
+    //     return this;
+    // }
 
     getOwnComputerLink = () => 
     cy.get("img[title='Show details for Build your own cheap computer']");

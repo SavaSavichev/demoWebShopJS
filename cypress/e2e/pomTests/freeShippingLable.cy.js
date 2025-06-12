@@ -8,7 +8,6 @@ it("Verify Free Shippint is display", () => {
     const productPage = new ProductPage();
 
     mainPage
-        .visit()
         .clickOwnComputerLink()
         .getFreeShipping()
         .should("be.visible");
