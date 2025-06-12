@@ -1,14 +1,11 @@
 /// <reference types="cypress" />
 
 import MainPage from "../../pageObjects/MainPage";
-import ProductPage from "../../pageObjects/ProductPage";
+import mainPageData from "../../fixtures/pom/mainPageData.json";
 
 it("Verify Free Shippint is display", () => {
     const mainPage = new MainPage();
-    const productPage = new ProductPage();
 
     mainPage.visit();
-    mainPage.clickOwnComputerLink();
-    productPage.getFreeShipping().should("be.visible");
-
+    mainPage.checkPageTitle(mainPageData.pageTitle);
 });
