@@ -1,7 +1,13 @@
 import Header from "./Header";
 import ProductPage from "./ProductPage";
+import SideMenu from "./SideMenu";
 
-class MainPage extends Header {
+class MainPage {
+
+    constructor() {
+        this.header = new Header();
+        this.sideMenu = new SideMenu();
+    }
 
     getOwnComputerLink = () => 
     cy.get("img[title='Show details for Build your own cheap computer']");

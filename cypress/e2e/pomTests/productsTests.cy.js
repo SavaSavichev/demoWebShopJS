@@ -2,11 +2,13 @@
 
 import MainPage from "../../pageObjects/MainPage";
 import mainPageData from "../../fixtures/pom/mainPageData.json";
+import ProductPage from "../../pageObjects/ProductPage";
 
 describe('Product Page Tests', () => {
+    const mainPage = new MainPage();
+    const productPage = new ProductPage();
 
     it("Verify Free Shippint is display", () => {
-        const mainPage = new MainPage();
         
         mainPage
             .clickOwnComputerLink()
@@ -15,11 +17,22 @@ describe('Product Page Tests', () => {
     });
 
     it("Return back to Main page", () => {
-        const mainPage = new MainPage();
         
         mainPage
             .clickOwnComputerLink()
-            .clickLogo()
+            .header.clickLogo()
             .checkPageTitle(mainPageData.pageTitle);
+    });
+
+    it("Set Shoe Size", () => {
+        const size = "11";
+        
+        mainPage
+            .sideMenu.clickShoesButton()
+            .clickSneakersIcon()
+            .setSizeSelect(size)
+            .clickAddCartButton()
+            .header.clickShoppingCart()
+            .checkSizeFromAttributes(size);
     });
 }); 
