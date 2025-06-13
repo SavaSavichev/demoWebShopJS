@@ -1,10 +1,7 @@
+import Header from "./Header";
 import ProductPage from "./ProductPage";
 
-class MainPage {
-    // visit() {
-    //     cy.visit('/')
-    //     return this;
-    // }
+class MainPage extends Header {
 
     getOwnComputerLink = () => 
     cy.get("img[title='Show details for Build your own cheap computer']");
