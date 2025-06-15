@@ -12,6 +12,7 @@ class ProductPage {
     getFreeShipping = () => cy.get(".free-shipping");
     getSizeSelect = () => cy.get("#product_attribute_28_7_10");
     getAddCartButton = () => cy.get(".add-to-cart-button");
+    getGreenColor = () => cy.get("span[title='Green'] span[class='color']");
 
     setSizeSelect(size) {
         this.getSizeSelect().select(size);
@@ -25,6 +26,11 @@ class ProductPage {
         return new CartPage();
     }
 
+    clickGreenColor() {
+        this.getGreenColor().click();
+
+        return this;
+    }
 }
 
 export default ProductPage;

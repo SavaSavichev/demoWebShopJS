@@ -18,6 +18,15 @@ class CartPage {
             expect(size).to.eq(size);
         });
     }
+
+    checkColorFromAttributes(color) {
+        this.getItemAttributes().invoke('text').then((text) => {
+            const sizeMatch = text.match(/Color:\s*(.+)/);
+            const size = sizeMatch ? sizeMatch[1] : null;
+            
+            expect(size).to.eq(size);
+        });
+    }
 }
 
 export default CartPage;

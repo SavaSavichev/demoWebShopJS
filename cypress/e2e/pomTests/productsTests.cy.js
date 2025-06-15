@@ -35,4 +35,16 @@ describe('Product Page Tests', () => {
             .header.clickShoppingCart()
             .checkSizeFromAttributes(size);
     });
+
+    it("Set Shoe Color", () => {
+        const color = "Green";
+        
+        mainPage
+            .sideMenu.clickShoesButton()
+            .clickSneakersIcon()
+            .clickGreenColor()
+            .clickAddCartButton()
+            .header.clickShoppingCart()
+            .checkColorFromAttributes(color);
+    });
 }); 
