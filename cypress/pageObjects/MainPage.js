@@ -11,8 +11,8 @@ class MainPage {
 
     getOwnComputerLink = () => 
     cy.get("img[title='Show details for Build your own cheap computer']");
-
     getPageTitle = () => cy.get(".topic-html-content-header");
+    getLaptopLink = () => cy.get("div[class='product-item'] img[title='Show details for 14.1-inch Laptop']");
 
     checkPageTitle(expectedText) {
         this.getPageTitle().invoke('text').then((text) => {
@@ -22,6 +22,12 @@ class MainPage {
 
     clickOwnComputerLink() {
         this.getOwnComputerLink().click();
+
+        return new ProductPage();
+    }
+
+    clickLaptopLink() {
+        this.getLaptopLink().click();
 
         return new ProductPage();
     }

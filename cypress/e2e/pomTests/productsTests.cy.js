@@ -2,11 +2,9 @@
 
 import MainPage from "../../pageObjects/MainPage";
 import mainPageData from "../../fixtures/pom/mainPageData.json";
-import ProductPage from "../../pageObjects/ProductPage";
 
 describe('Product Page Tests', () => {
     const mainPage = new MainPage();
-    const productPage = new ProductPage();
 
     it("Verify Free Shippint is display", () => {
         
@@ -47,4 +45,25 @@ describe('Product Page Tests', () => {
             .header.clickShoppingCart()
             .checkColorFromAttributes(color);
     });
+
+    it("Add Review", () => {
+        const email = "testovoemylo@mulo.com";
+        const password = "123456";
+        const reviewTitle = "New title";
+        const reviewText = "New review text";
+        const expectedMessageText = "Product review is successfully added.";
+        
+        mainPage
+            .header.clickLogIn()
+            .enterEmail(email)
+            .enterPassword(password)
+            .clickLoginButton()
+            .clickLaptopLink()
+            .clickAddReviewLink()
+            .enterRevievTitle(reviewTitle)
+            .enterReviexText(reviewText)
+            .clickSubmitReview()
+            .checkMessageText(expectedMessageText);
+    });
+    
 }); 
