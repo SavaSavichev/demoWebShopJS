@@ -11,7 +11,7 @@ class ReviewPage {
         return this;
     }
 
-    enterReviexText(text) {
+    enterReviewText(text) {
         this.getText().type(text);
 
         return this;

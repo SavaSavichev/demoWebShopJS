@@ -9,6 +9,9 @@ class CartPage {
     }
 
     getItemAttributes = () => cy.get("td[class='product'] div[class='attributes']");
+    getProductName = () => cy.get(".product-name");
+    getQuantityInput = () => cy.get(".qty-input");
+    getUpdateQuantityButton = () => cy.get("input[name='updatecart']");
     
     checkSizeFromAttributes(size) {
         this.getItemAttributes().invoke('text').then((text) => {
@@ -26,6 +29,18 @@ class CartPage {
             
             expect(size).to.eq(size);
         });
+    }
+
+    setQuantity(quantity) {
+        this.getQuantityInput().clear().type("2");
+
+        return this;
+    }
+
+    clickUpdateQuantity() {
+        this.getUpdateQuantityButton().click();
+
+        return this;
     }
 }
 

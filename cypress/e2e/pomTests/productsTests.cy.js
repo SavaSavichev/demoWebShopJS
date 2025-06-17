@@ -2,6 +2,7 @@
 
 import MainPage from "../../pageObjects/MainPage";
 import mainPageData from "../../fixtures/pom/mainPageData.json";
+import productPageData from "../../fixtures/pom/productPageData.json"
 
 describe('Product Page Tests', () => {
     const mainPage = new MainPage();
@@ -23,19 +24,17 @@ describe('Product Page Tests', () => {
     });
 
     it("Set Shoe Size", () => {
-        const size = "11";
         
         mainPage
             .sideMenu.clickShoesButton()
             .clickSneakersIcon()
-            .setSizeSelect(size)
+            .setSizeSelect(productPageData.shoeSize)
             .clickAddCartButton()
             .header.clickShoppingCart()
-            .checkSizeFromAttributes(size);
+            .checkSizeFromAttributes(productPageData.shoeSize);
     });
 
     it("Set Shoe Color", () => {
-        const color = "Green";
         
         mainPage
             .sideMenu.clickShoesButton()
@@ -43,27 +42,22 @@ describe('Product Page Tests', () => {
             .clickGreenColor()
             .clickAddCartButton()
             .header.clickShoppingCart()
-            .checkColorFromAttributes(color);
+            .checkColorFromAttributes(productPageData.shoeColor);
     });
 
     it("Add Review", () => {
-        const email = "testovoemylo@mulo.com";
-        const password = "123456";
-        const reviewTitle = "New title";
-        const reviewText = "New review text";
-        const expectedMessageText = "Product review is successfully added.";
         
         mainPage
             .header.clickLogIn()
-            .enterEmail(email)
-            .enterPassword(password)
+            .enterEmail(productPageData.userEmail)
+            .enterPassword(productPageData.userPassword)
             .clickLoginButton()
             .clickLaptopLink()
             .clickAddReviewLink()
-            .enterRevievTitle(reviewTitle)
-            .enterReviexText(reviewText)
+            .enterRevievTitle(productPageData.reviewTitle)
+            .enterReviewText(productPageData.reviewText)
             .clickSubmitReview()
-            .checkMessageText(expectedMessageText);
+            .checkMessageText(productPageData.expectedAddMessageText);
     });
     
 }); 

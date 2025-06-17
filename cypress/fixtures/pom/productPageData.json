@@ -1,0 +1,9 @@
+{
+    "expectedAddMessageText": "Product review is successfully added.",
+    "userEmail": "testovoemylo@mulo.com",
+    "userPassword": "123456",
+    "reviewTitle": "New title",
+    "reviewText": "New review text",
+    "shoeColor": "Green",
+    "shoeSize": "11"
+}
