@@ -19,6 +19,28 @@ describe("User Page Tests", () => {
             .enterConfirmPassword(userPageData.password)
             .clickRegisterButton()
             .checkResultMessage(userPageData.resultMessage);
+    });
 
+    it("Log in User", () => {
+        
+        mainPage
+            .header.clickLogIn()
+            .enterEmail(userPageData.userEmail)
+            .enterPassword(userPageData.userPassword)
+            .clickLoginButton()
+            .header.getAccountEmail()
+            .should("have.text", userPageData.userEmail);
+    });
+
+    it("Log out User", () => {
+        
+        mainPage
+            .header.clickLogIn()
+            .enterEmail(userPageData.userEmail)
+            .enterPassword(userPageData.userPassword)
+            .clickLoginButton()
+            .header.clickLogOut()
+            .header.getRegister()
+            .should("have.text", "Register");
     });
 });

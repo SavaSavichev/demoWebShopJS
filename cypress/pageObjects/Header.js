@@ -12,6 +12,8 @@ class Header {
     getRegister = () => cy.get(".ico-register");
     getShoppingCart = () => cy.get("a[class='ico-cart'] span[class='cart-label']");
     getWishlist = () => cy.get("a[class='ico-wishlist'] span[class='cart-label']");
+    getLogOut = () => cy.get(".ico-logout");
+    getAccountEmail = () => cy.get("div[class='header-links'] a[class='account']");
     getElectroncsButtonTopMenu = () => cy.get("ul.top-menu > li:nth-child(3) > a");
     getCellPhonesLinkTopMenu = () => cy.get("ul.top-menu > li:nth-child(3) > ul > li:nth-child(2) > a");
 
@@ -50,6 +52,12 @@ class Header {
         this.getCellPhonesLinkTopMenu().should("be.visible").click();
 
         return new CatalogPage();
+    }
+
+    clickLogOut() {
+        this.getLogOut().click();
+
+        return new MainPage();
     }
 }
 

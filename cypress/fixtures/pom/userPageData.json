@@ -2,5 +2,7 @@
     "firstName": "User",
     "lastName": "Userov",
     "password": "111111",
-    "resultMessage": "Your registration completed"
+    "resultMessage": "Your registration completed",
+    "userEmail": "testovoemylo@mulo.com",
+    "userPassword": "123456"
 }
