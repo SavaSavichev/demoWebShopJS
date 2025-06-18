@@ -4,7 +4,7 @@ import MainPage from "../../pageObjects/MainPage";
 import mainPageData from "../../fixtures/pom/mainPageData.json";
 import productPageData from "../../fixtures/pom/productPageData.json"
 
-describe('Product Page Tests', () => {
+describe("Product Page Tests", () => {
     const mainPage = new MainPage();
 
     it("Verify Free Shippint is display", () => {

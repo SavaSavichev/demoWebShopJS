@@ -1,4 +1,12 @@
+import Header from "./Header";
+import SideMenu from "./SideMenu";
+
 class ReviewPage {
+
+    constructor() {
+        this.header = new Header();
+        this.sideMenu = new SideMenu();
+    }
 
     getTitle = () => cy.get("#AddProductReview_Title");
     getText = () => cy.get("#AddProductReview_ReviewText");
@@ -24,8 +32,8 @@ class ReviewPage {
     }
 
     checkMessageText(expectedText) {
-        this.getMessageText().invoke('text').then((text) => {
-            expect(text.trim()).to.eq(expectedText);
+        this.getMessageText().invoke("text").then((text) => {
+            expect(expectedText).to.eq(text.trim());
         });
     }
 }

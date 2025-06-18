@@ -15,6 +15,7 @@ class ProductPage {
     getAddCartButton = () => cy.get(".add-to-cart-button");
     getGreenColor = () => cy.get("span[title='Green'] span[class='color']");
     getAddReviewButton = () => cy.get("body > div:nth-child(4) > div:nth-child(1) > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > a:nth-child(3)");
+    getAddToWishlistButton = () => cy.get(".add-to-wishlist-button");
 
     setSizeSelect(size) {
         this.getSizeSelect().select(size);
@@ -38,6 +39,12 @@ class ProductPage {
         this.getAddReviewButton().click();
 
         return new ReviewPage();
+    }
+
+    clickAddToWishlistButton() {
+        this.getAddToWishlistButton().click();
+
+        return this;
     }
 }
 

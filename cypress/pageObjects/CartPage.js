@@ -18,7 +18,7 @@ class CartPage {
     getWarningBoxText = () => cy.get(".ui-dialog-content");
     
     checkSizeFromAttributes(size) {
-        this.getItemAttributes().invoke('text').then((text) => {
+        this.getItemAttributes().invoke("text").then((text) => {
             const sizeMatch = text.match(/Size:\s*(\d+)/);
             const size = sizeMatch ? sizeMatch[1] : null;
             
@@ -27,7 +27,7 @@ class CartPage {
     }
 
     checkColorFromAttributes(color) {
-        this.getItemAttributes().invoke('text').then((text) => {
+        this.getItemAttributes().invoke("text").then((text) => {
             const sizeMatch = text.match(/Color:\s*(.+)/);
             const size = sizeMatch ? sizeMatch[1] : null;
             
@@ -36,7 +36,7 @@ class CartPage {
     }
 
     setQuantity(quantity) {
-        this.getQuantityInput().clear().type("2");
+        this.getQuantityInput().clear().type(quantity);
 
         return this;
     }
@@ -50,9 +50,9 @@ class CartPage {
     checkTotalPrice(quantity) {
         let unitPrice, totalPrice;
     
-        this.getUnitItemPrice().invoke('text').then((text) => {
+        this.getUnitItemPrice().invoke("text").then((text) => {
             unitPrice = Number(text.trim());
-            this.getTotalPrice().invoke('text').then((totalText) => {
+            this.getTotalPrice().invoke("text").then((totalText) => {
                 totalPrice = Number(totalText.trim());
     
                 expect(unitPrice * quantity).to.eq(totalPrice);
@@ -67,7 +67,7 @@ class CartPage {
     }
 
     checkWarningBoxText(warningBoxText) {
-        this.getWarningBoxText().invoke('text').then((text) => {
+        this.getWarningBoxText().invoke("text").then((text) => {
             expect(warningBoxText).to.eq(text.trim());
         });
     }

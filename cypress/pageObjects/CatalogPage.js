@@ -10,9 +10,16 @@ class CatalogPage {
     }
 
     getSneakersIcon = () => cy.get("div[class='product-item'] img[title='Show details for Blue and green Sneaker']");
+    getSmartPhoneIcon = () =>cy.get("img[title='Show details for Smartphone']");
     
     clickSneakersIcon() {
         this.getSneakersIcon().click();
+
+        return new ProductPage();
+    }
+
+    clickSmartPhoneIcon() {
+        this.getSmartPhoneIcon().click();
 
         return new ProductPage();
     }

@@ -3,7 +3,7 @@
 import MainPage from "../../pageObjects/MainPage";
 import cartPageData from "../../fixtures/pom/cartPageData.json"
 
-describe('Product Page Tests', () => {
+describe("Cart Page Tests", () => {
     const mainPage = new MainPage();
 
     it("Add laptop to card from main page", () => {
