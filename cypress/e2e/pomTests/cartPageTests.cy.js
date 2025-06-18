@@ -33,4 +33,23 @@ describe('Product Page Tests', () => {
             .getQuantityInput().should("have.value", cartPageData.productQuantity);
     });
 
+    it("Increase total price depends quantity", () => {
+        
+        mainPage
+            .clickLaptopAddToCartButton()
+            .header.clickShoppingCart()
+            .setQuantity(cartPageData.productQuantity)
+            .clickUpdateQuantity()
+            .checkTotalPrice(cartPageData.productQuantity);
+    });
+
+    it("Warning Terms Box", () => {
+        
+        mainPage
+            .clickLaptopAddToCartButton()
+            .header.clickShoppingCart()
+            .clickCheckoutButton()
+            .checkWarningBoxText(cartPageData.warningBoxText);
+    });
+
 });

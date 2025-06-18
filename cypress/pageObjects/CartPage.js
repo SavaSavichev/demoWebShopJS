@@ -12,6 +12,10 @@ class CartPage {
     getProductName = () => cy.get(".product-name");
     getQuantityInput = () => cy.get(".qty-input");
     getUpdateQuantityButton = () => cy.get("input[name='updatecart']");
+    getUnitItemPrice = () => cy.get(".product-unit-price");
+    getTotalPrice = () => cy.get(".product-subtotal");
+    getCheckoutButton = () => cy.get(".checkout-button");
+    getWarningBoxText = () => cy.get(".ui-dialog-content");
     
     checkSizeFromAttributes(size) {
         this.getItemAttributes().invoke('text').then((text) => {
@@ -41,6 +45,31 @@ class CartPage {
         this.getUpdateQuantityButton().click();
 
         return this;
+    }
+
+    checkTotalPrice(quantity) {
+        let unitPrice, totalPrice;
+    
+        this.getUnitItemPrice().invoke('text').then((text) => {
+            unitPrice = Number(text.trim());
+            this.getTotalPrice().invoke('text').then((totalText) => {
+                totalPrice = Number(totalText.trim());
+    
+                expect(unitPrice * quantity).to.eq(totalPrice);
+            });
+        });
+    }
+
+    clickCheckoutButton() {
+        this.getCheckoutButton().click();
+
+        return this;
+    }
+
+    checkWarningBoxText(warningBoxText) {
+        this.getWarningBoxText().invoke('text').then((text) => {
+            expect(warningBoxText).to.eq(text.trim());
+        });
     }
 }
 
