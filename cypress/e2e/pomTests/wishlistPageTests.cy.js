@@ -39,4 +39,16 @@ describe("Wishlist Page Tests", () => {
             .clickAddToCartButton()
             .getProductName().should("have.text", wishlistPageData.productName);
     });
+
+    it("Increase Quantity", () => {
+        
+        mainPage
+            .header.clickCameraPhotoLinkTopMenu()
+            .clickSmartPhoneIcon()
+            .clickAddToWishlistButton()
+            .header.clickWishlist()
+            .setQuantity(wishlistPageData.quantity)
+            .clickUpdateWishlistButton()
+            .getQuantityField().should("have.value", wishlistPageData.quantity);
+    });
 });
