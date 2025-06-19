@@ -16,25 +16,25 @@ class CartPage {
   getCheckoutButton = () => cy.get('.checkout-button');
   getWarningBoxText = () => cy.get('.ui-dialog-content');
 
-  checkSizeFromAttributes(size) {
+  checkSizeFromAttributes(expectedSize) {
     this.getItemAttributes()
       .invoke('text')
       .then((text) => {
         const sizeMatch = text.match(/Size:\s*(\d+)/);
         const size = sizeMatch ? sizeMatch[1] : null;
 
-        expect(size).to.eq(size);
+        expect(expectedSize).to.eq(String(size));
       });
   }
 
-  checkColorFromAttributes(color) {
+  checkColorFromAttributes(expectedColor) {
     this.getItemAttributes()
       .invoke('text')
       .then((text) => {
-        const sizeMatch = text.match(/Color:\s*(.+)/);
-        const size = sizeMatch ? sizeMatch[1] : null;
+        const colorMatch = text.match(/Color:\s*(.+)/);
+        const color = colorMatch ? colorMatch[1] : null;
 
-        expect(size).to.eq(size);
+        expect(expectedColor).to.eq(String(color));
       });
   }
 
