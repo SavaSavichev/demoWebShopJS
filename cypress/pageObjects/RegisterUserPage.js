@@ -58,6 +58,7 @@ class RegisterUserPage {
 
   checkResultMessage(resultMessage) {
     this.getResultMessage()
+      .should('be.visible')
       .invoke('text')
       .then((text) => {
         expect(resultMessage).to.eq(text.trim());

@@ -16,6 +16,7 @@ class WishlistPage {
 
   checkProductName(productName) {
     this.getProductName()
+      .should('be.visible')
       .invoke('text')
       .then((text) => {
         expect(productName).to.eq(text.trim());
@@ -36,6 +37,7 @@ class WishlistPage {
 
   checkEmptyMessageText(messageText) {
     this.getEmptyMessage()
+      .should('be.visible')
       .invoke('text')
       .then((text) => {
         expect(messageText).to.eq(text.trim());

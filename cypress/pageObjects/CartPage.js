@@ -18,6 +18,7 @@ class CartPage {
 
   checkSizeFromAttributes(expectedSize) {
     this.getItemAttributes()
+      .should('be.visible')
       .invoke('text')
       .then((text) => {
         const sizeMatch = text.match(/Size:\s*(\d+)/);
@@ -29,6 +30,7 @@ class CartPage {
 
   checkColorFromAttributes(expectedColor) {
     this.getItemAttributes()
+      .should('be.visible')
       .invoke('text')
       .then((text) => {
         const colorMatch = text.match(/Color:\s*(.+)/);
@@ -54,6 +56,7 @@ class CartPage {
     let unitPrice, totalPrice;
 
     this.getUnitItemPrice()
+      .should('be.visible')
       .invoke('text')
       .then((text) => {
         unitPrice = Number(text.trim());
@@ -75,6 +78,7 @@ class CartPage {
 
   checkWarningBoxText(warningBoxText) {
     this.getWarningBoxText()
+      .should('be.visible')
       .invoke('text')
       .then((text) => {
         expect(warningBoxText).to.eq(text.trim());

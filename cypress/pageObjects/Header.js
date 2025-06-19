@@ -54,7 +54,7 @@ class Header {
   }
 
   clickCameraPhotoLinkTopMenu() {
-    this.getElectroncsButtonTopMenu().trigger('mouseover');
+    this.getElectroncsButtonTopMenu().should('be.visible').trigger('mouseover');
     this.getCellPhonesLinkTopMenu().should('be.visible').click();
 
     return new CatalogPage();

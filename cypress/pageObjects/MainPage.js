@@ -20,6 +20,7 @@ class MainPage {
 
   checkPageTitle(expectedText) {
     this.getPageTitle()
+      .should('be.visible')
       .invoke('text')
       .then((text) => {
         expect(expectedText).to.eq(text.trim());

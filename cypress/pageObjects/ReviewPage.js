@@ -31,6 +31,7 @@ class ReviewPage {
 
   checkMessageText(expectedText) {
     this.getMessageText()
+      .should('be.visible')
       .invoke('text')
       .then((text) => {
         expect(expectedText).to.eq(text.trim());
