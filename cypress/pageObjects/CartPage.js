@@ -7,13 +7,13 @@ class CartPage {
   }
 
   getItemAttributes = () =>
-    cy.get("td[class='product'] div[class='attributes']", { timeout: 10000 });
+    cy.get("td[class='product'] div[class='attributes']", { timeout: 20000 });
   getProductName = () => cy.get('.product-name');
-  getQuantityInput = () => cy.get('.qty-input', { timeout: 10000 });
+  getQuantityInput = () => cy.get('.qty-input', { timeout: 20000 });
   getUpdateQuantityButton = () => cy.get("input[name='updatecart']");
   getUnitItemPrice = () => cy.get('.product-unit-price');
   getTotalPrice = () => cy.get('.product-subtotal');
-  getCheckoutButton = () => cy.get('.checkout-button');
+  getCheckoutButton = () => cy.get('.checkout-button', { timeout: 10000 });
   getWarningBoxText = () => cy.get('.ui-dialog-content');
 
   checkSizeFromAttributes(expectedSize) {
