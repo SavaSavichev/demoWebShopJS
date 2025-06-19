@@ -7,7 +7,7 @@ class CartPage {
   }
 
   getItemAttributes = () =>
-    cy.get("td[class='product'] div[class='attributes']");
+    cy.get("td[class='product'] div[class='attributes']", { timeout: 10000 });
   getProductName = () => cy.get('.product-name');
   getQuantityInput = () => cy.get('.qty-input', { timeout: 10000 });
   getUpdateQuantityButton = () => cy.get("input[name='updatecart']");
