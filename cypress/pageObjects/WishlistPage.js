@@ -7,7 +7,7 @@ class WishlistPage {
   }
 
   getProductName = () => cy.get('td.product');
-  getRemoveCheckBox = () => cy.get("[name='removefromcart']");
+  getRemoveCheckBox = () => cy.get("[name='removefromcart']", { timeout: 10000 });
   getUpdateWishlistButton = () => cy.get("input[value='Update wishlist']");
   getAddToCartCheckBox = () => cy.get('td.add-to-cart');
   getAddToCartButton = () => cy.get("input[value='Add to cart']");
