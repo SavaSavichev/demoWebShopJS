@@ -3,10 +3,10 @@
 import { MainPage } from '../../pageObjects';
 import { wishlistPageData } from '../../fixtures/pom';
 
-describe('Wishlist Page Tests', () => {
+describe('Wishlist Page – Functionality and Interactions', () => {
   const mainPage = new MainPage();
 
-  it('Add item to wishlist', () => {
+  it('adds a product to the wishlist', () => {
     mainPage.header
       .clickCameraPhotoLinkTopMenu()
       .clickSmartPhoneIcon()
@@ -15,7 +15,7 @@ describe('Wishlist Page Tests', () => {
       .checkProductName(wishlistPageData.productName);
   });
 
-  it('Delete item from wishlist', () => {
+  it('removes a product from the wishlist', () => {
     mainPage.header
       .clickCameraPhotoLinkTopMenu()
       .clickSmartPhoneIcon()
@@ -26,7 +26,7 @@ describe('Wishlist Page Tests', () => {
       .checkEmptyMessageText(wishlistPageData.messageText);
   });
 
-  it('Add item from wishlist to cart', () => {
+  it('moves a product from the wishlist to the cart', () => {
     mainPage.header
       .clickCameraPhotoLinkTopMenu()
       .clickSmartPhoneIcon()
@@ -38,7 +38,7 @@ describe('Wishlist Page Tests', () => {
       .should('have.text', wishlistPageData.productName);
   });
 
-  it('Increase Quantity', () => {
+  it('updates the product quantity in the wishlist', () => {
     mainPage.header
       .clickCameraPhotoLinkTopMenu()
       .clickSmartPhoneIcon()

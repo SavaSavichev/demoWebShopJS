@@ -3,10 +3,10 @@
 import { MainPage } from '../../pageObjects';
 import { userPageData } from '../../fixtures/pom';
 
-describe('User Page Tests', () => {
+describe('User Account – Registration, Login and Logout', () => {
   const mainPage = new MainPage();
 
-  it('Register new user', () => {
+  it('registers a new user successfully', () => {
     mainPage.header
       .clickRegister()
       .clickMaleGenderRadio()
@@ -20,7 +20,7 @@ describe('User Page Tests', () => {
       .checkResultMessage(userPageData.resultMessage);
   });
 
-  it('Log in User', () => {
+  it('logs in an existing user', () => {
     mainPage.header
       .clickLogIn()
       .enterEmail(userPageData.userEmail)
@@ -30,7 +30,7 @@ describe('User Page Tests', () => {
       .should('have.text', userPageData.userEmail);
   });
 
-  it('Log out User', () => {
+  it('logs out the current user', () => {
     mainPage.header
       .clickLogIn()
       .enterEmail(userPageData.userEmail)

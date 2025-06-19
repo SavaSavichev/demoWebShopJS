@@ -3,21 +3,21 @@
 import { MainPage } from '../../pageObjects';
 import { mainPageData, productPageData } from '../../fixtures/pom';
 
-describe('Product Page Tests', () => {
+describe('Product Page – Interactions and Validations', () => {
   const mainPage = new MainPage();
 
-  it('Verify Free Shippint is display', () => {
+  it('displays Free Shipping label on product page', () => {
     mainPage.clickOwnComputerLink().getFreeShipping().should('be.visible');
   });
 
-  it('Return back to Main page', () => {
+  it('returns to main page after clicking the logo', () => {
     mainPage
       .clickOwnComputerLink()
       .header.clickLogo()
       .checkPageTitle(mainPageData.pageTitle);
   });
 
-  it('Set Shoe Size', () => {
+  it('sets shoe size and verifies it in the cart', () => {
     mainPage.sideMenu
       .clickShoesButton()
       .clickSneakersIcon()
@@ -27,7 +27,7 @@ describe('Product Page Tests', () => {
       .checkSizeFromAttributes(productPageData.shoeSize);
   });
 
-  it('Set Shoe Color', () => {
+  it('sets shoe color and verifies it in the cart', () => {
     mainPage.sideMenu
       .clickShoesButton()
       .clickSneakersIcon()
@@ -37,7 +37,7 @@ describe('Product Page Tests', () => {
       .checkColorFromAttributes(productPageData.shoeColor);
   });
 
-  it('Add Review', () => {
+  it('adds a product review and verifies success message', () => {
     mainPage.header
       .clickLogIn()
       .enterEmail(productPageData.userEmail)

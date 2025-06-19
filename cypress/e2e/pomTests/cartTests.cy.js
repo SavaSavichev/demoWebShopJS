@@ -3,10 +3,10 @@
 import { MainPage } from '../../pageObjects';
 import { cartPageData } from '../../fixtures/pom';
 
-describe('Cart Page Tests', () => {
+describe('Cart Page – User Interactions and Validations', () => {
   const mainPage = new MainPage();
 
-  it('Add laptop to card from main page', () => {
+  it('adds laptop to cart from the main page', () => {
     mainPage
       .clickLaptopAddToCartButton()
       .header.clickShoppingCart()
@@ -14,7 +14,7 @@ describe('Cart Page Tests', () => {
       .should('have.text', cartPageData.productName);
   });
 
-  it('Add laptop to card from product page', () => {
+  it('adds laptop to cart from the product page', () => {
     mainPage
       .clickLaptopLink()
       .clickAddCartButton()
@@ -23,7 +23,7 @@ describe('Cart Page Tests', () => {
       .should('have.text', cartPageData.productName);
   });
 
-  it('Increase Quantity', () => {
+  it('increases quantity of the product in the cart', () => {
     mainPage
       .clickLaptopAddToCartButton()
       .header.clickShoppingCart()
@@ -33,7 +33,7 @@ describe('Cart Page Tests', () => {
       .should('have.value', cartPageData.productQuantity);
   });
 
-  it('Increase total price depends quantity', () => {
+  it('updates total price according to quantity', () => {
     mainPage
       .clickLaptopAddToCartButton()
       .header.clickShoppingCart()
@@ -42,7 +42,7 @@ describe('Cart Page Tests', () => {
       .checkTotalPrice(cartPageData.productQuantity);
   });
 
-  it('Warning Terms Box', () => {
+  it('displays warning popup if terms are not accepted', () => {
     mainPage
       .clickLaptopAddToCartButton()
       .header.clickShoppingCart()
