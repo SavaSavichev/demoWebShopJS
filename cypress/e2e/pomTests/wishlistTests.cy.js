@@ -35,7 +35,8 @@ describe('Wishlist Page – Functionality and Interactions', () => {
       .clickAddCartCheckBox()
       .clickAddToCartButton()
       .getProductName()
-      .should('have.text', wishlistPageData.productName);
+      .should('be.visible')
+      .and('have.text', wishlistPageData.productName);
   });
 
   it('updates the product quantity in the wishlist', () => {
@@ -47,6 +48,7 @@ describe('Wishlist Page – Functionality and Interactions', () => {
       .setQuantity(wishlistPageData.quantity)
       .clickUpdateWishlistButton()
       .getQuantityField()
-      .should('have.value', wishlistPageData.quantity);
+      .should('be.visible')
+      .and('have.value', wishlistPageData.quantity);
   });
 });

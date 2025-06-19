@@ -27,7 +27,8 @@ describe('User Account – Registration, Login and Logout', () => {
       .enterPassword(userPageData.userPassword)
       .clickLoginButton()
       .header.getAccountEmail()
-      .should('have.text', userPageData.userEmail);
+      .should('be.visible')
+      .and('have.text', userPageData.userEmail);
   });
 
   it('logs out the current user', () => {
@@ -38,6 +39,7 @@ describe('User Account – Registration, Login and Logout', () => {
       .clickLoginButton()
       .header.clickLogOut()
       .header.getRegister()
-      .should('have.text', 'Register');
+      .should('be.visible')
+      .and('have.text', 'Register');
   });
 });

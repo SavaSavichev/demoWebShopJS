@@ -11,7 +11,8 @@ describe('Cart Page – User Interactions and Validations', () => {
       .clickLaptopAddToCartButton()
       .header.clickShoppingCart()
       .getProductName()
-      .should('have.text', cartPageData.productName);
+      .should('be.visible')
+      .and('have.text', cartPageData.productName);
   });
 
   it('adds laptop to cart from the product page', () => {
@@ -20,7 +21,8 @@ describe('Cart Page – User Interactions and Validations', () => {
       .clickAddCartButton()
       .header.clickShoppingCart()
       .getProductName()
-      .should('have.text', cartPageData.productName);
+      .should('be.visible')
+      .and('have.text', cartPageData.productName);
   });
 
   it('increases quantity of the product in the cart', () => {
@@ -30,7 +32,8 @@ describe('Cart Page – User Interactions and Validations', () => {
       .setQuantity(cartPageData.productQuantity)
       .clickUpdateQuantity()
       .getQuantityInput()
-      .should('have.value', cartPageData.productQuantity);
+      .should('be.visible')
+      .and('have.value', cartPageData.productQuantity);
   });
 
   it('updates total price according to quantity', () => {
