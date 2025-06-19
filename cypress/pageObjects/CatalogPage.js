@@ -13,13 +13,13 @@ class CatalogPage {
   getSmartPhoneIcon = () => cy.get("img[title='Show details for Smartphone']");
 
   clickSneakersIcon() {
-    this.getSneakersIcon().click();
+    this.getSneakersIcon().should('be.visible').click();
 
     return new ProductPage();
   }
 
   clickSmartPhoneIcon() {
-    this.getSmartPhoneIcon().click();
+    this.getSmartPhoneIcon().should('be.visible').click();
 
     return new ProductPage();
   }

@@ -39,13 +39,13 @@ class CartPage {
   }
 
   setQuantity(quantity) {
-    this.getQuantityInput().clear().type(quantity);
+    this.getQuantityInput().should('be.visible').clear().type(quantity);
 
     return this;
   }
 
   clickUpdateQuantity() {
-    this.getUpdateQuantityButton().click();
+    this.getUpdateQuantityButton().should('be.visible').click();
 
     return this;
   }

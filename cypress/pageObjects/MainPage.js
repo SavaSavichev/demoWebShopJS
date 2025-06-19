@@ -27,19 +27,19 @@ class MainPage {
   }
 
   clickOwnComputerLink() {
-    this.getOwnComputerLink().click();
+    this.getOwnComputerLink().should('be.visible').click();
 
     return new ProductPage();
   }
 
   clickLaptopLink() {
-    this.getLaptopLink().click();
+    this.getLaptopLink().should('be.visible').click();
 
     return new ProductPage();
   }
 
   clickLaptopAddToCartButton() {
-    this.getLaptopAddCartButton().click();
+    this.getLaptopAddCartButton().should('be.visible').click();
 
     return this;
   }

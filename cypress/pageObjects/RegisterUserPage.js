@@ -16,42 +16,42 @@ class RegisterUserPage {
   getResultMessage = () => cy.get('.result');
 
   clickMaleGenderRadio() {
-    this.getMaleGenderRadio().click();
+    this.getMaleGenderRadio().should('be.visible').click();
 
     return this;
   }
 
   enterFirstName(firstName) {
-    this.getFirstNameField().clear().type(firstName);
+    this.getFirstNameField().should('be.visible').clear().type(firstName);
 
     return this;
   }
 
   enterLastName(lastName) {
-    this.getLastName().clear().type(lastName);
+    this.getLastName().should('be.visible').clear().type(lastName);
 
     return this;
   }
 
   enterEmail() {
-    this.getEmailField().clear().type(this.generateEmail());
+    this.getEmailField().should('be.visible').clear().type(this.generateEmail());
     return this;
   }
 
   enterPassword(password) {
-    this.getPasswordField().clear().type(password);
+    this.getPasswordField().should('be.visible').clear().type(password);
 
     return this;
   }
 
   enterConfirmPassword(password) {
-    this.getConfirmPasswordField().clear().type(password);
+    this.getConfirmPasswordField().should('be.visible').clear().type(password);
 
     return this;
   }
 
   clickRegisterButton() {
-    this.getRegisterButton().click();
+    this.getRegisterButton().should('be.visible').click();
 
     return this;
   }

@@ -23,25 +23,25 @@ class ProductPage {
   }
 
   clickAddCartButton() {
-    this.getAddCartButton().click();
+    this.getAddCartButton().should('be.visible').click();
 
     return new CartPage();
   }
 
   clickGreenColor() {
-    this.getGreenColor().click();
+    this.getGreenColor().should('be.visible').click();
 
     return this;
   }
 
   clickAddReviewLink() {
-    this.getAddReviewButton().click();
+    this.getAddReviewButton().should('be.visible').click();
 
     return new ReviewPage();
   }
 
   clickAddToWishlistButton() {
-    this.getAddToWishlistButton().click();
+    this.getAddToWishlistButton().should('be.visible').click();
 
     return this;
   }

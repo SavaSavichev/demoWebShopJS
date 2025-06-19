@@ -23,13 +23,13 @@ class WishlistPage {
   }
 
   clickRemoveCheckBox() {
-    this.getRemoveCheckBox().click();
+    this.getRemoveCheckBox().should('be.visible').click();
 
     return this;
   }
 
   clickUpdateWishlistButton() {
-    this.getUpdateWishlistButton().click();
+    this.getUpdateWishlistButton().should('be.visible').click();
 
     return this;
   }
@@ -43,19 +43,19 @@ class WishlistPage {
   }
 
   clickAddCartCheckBox() {
-    this.getAddToCartCheckBox().click();
+    this.getAddToCartCheckBox().should('be.visible').click();
 
     return this;
   }
 
   clickAddToCartButton() {
-    this.getAddToCartButton().click();
+    this.getAddToCartButton().should('be.visible').click();
 
     return new CartPage();
   }
 
   setQuantity(quantity) {
-    this.getQuantityField().clear().type(quantity);
+    this.getQuantityField().should('be.visible').clear().type(quantity);
 
     return this;
   }

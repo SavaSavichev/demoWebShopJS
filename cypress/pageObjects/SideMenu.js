@@ -7,7 +7,7 @@ class SideMenu {
     );
 
   clickShoesButton() {
-    this.getShoesButton().click();
+    this.getShoesButton().should('be.visible').click();
 
     return new CatalogPage();
   }

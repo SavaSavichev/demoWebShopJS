@@ -12,19 +12,19 @@ class ReviewPage {
   getMessageText = () => cy.get("div[class='result']");
 
   enterRevievTitle(title) {
-    this.getTitle().type(title);
+    this.getTitle().should('be.visible').type(title);
 
     return this;
   }
 
   enterReviewText(text) {
-    this.getText().type(text);
+    this.getText().should('be.visible').type(text);
 
     return this;
   }
 
   clickSubmitReview() {
-    this.getSubmitReviewButton().click();
+    this.getSubmitReviewButton().should('be.visible').click();
 
     return this;
   }

@@ -24,31 +24,31 @@ class Header {
     cy.get('ul.top-menu > li:nth-child(3) > ul > li:nth-child(2) > a');
 
   clickLogo() {
-    this.getLogo().click();
+    this.getLogo().should('be.visible').click();
 
     return new MainPage();
   }
 
   clickShoppingCart() {
-    this.getShoppingCart().click();
+    this.getShoppingCart().should('be.visible').click();
 
     return new CartPage();
   }
 
   clickLogIn() {
-    this.getLogIn().click();
+    this.getLogIn().should('be.visible').click();
 
     return new LoginPage();
   }
 
   clickRegister() {
-    this.getRegister().click();
+    this.getRegister().should('be.visible').click();
 
     return new RegisterUserPage();
   }
 
   clickWishlist() {
-    this.getWishlist().click();
+    this.getWishlist().should('be.visible').click();
 
     return new WishlistPage();
   }
@@ -61,7 +61,7 @@ class Header {
   }
 
   clickLogOut() {
-    this.getLogOut().click();
+    this.getLogOut().should('be.visible').click();
 
     return new MainPage();
   }
