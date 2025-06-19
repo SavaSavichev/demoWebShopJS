@@ -1,73 +1,73 @@
-import Header from "./Header";
-import SideMenu from "./SideMenu";
+import { Header, SideMenu } from './';
 
 class RegisterUserPage {
+  constructor() {
+    this.header = new Header();
+    this.sideMenu = new SideMenu();
+  }
 
-    constructor() {
-        this.header = new Header();
-        this.sideMenu = new SideMenu();
-    }
+  getMaleGenderRadio = () => cy.get('#gender-male');
+  getFirstNameField = () => cy.get('#FirstName');
+  getLastName = () => cy.get('#LastName');
+  getEmailField = () => cy.get('#Email');
+  getPasswordField = () => cy.get('#Password');
+  getConfirmPasswordField = () => cy.get('#ConfirmPassword');
+  getRegisterButton = () => cy.get('.register-next-step-button');
+  getResultMessage = () => cy.get('.result');
 
-    getMaleGenderRadio = () => cy.get("#gender-male");
-    getFirstNameField = () => cy.get("#FirstName");
-    getLastName = () => cy.get("#LastName");
-    getEmailField = () => cy.get("#Email");
-    getPasswordField = () => cy.get("#Password");
-    getConfirmPasswordField = () => cy.get("#ConfirmPassword");
-    getRegisterButton = () => cy.get(".register-next-step-button");
-    getResultMessage = () => cy.get(".result");
+  clickMaleGenderRadio() {
+    this.getMaleGenderRadio().click();
 
-    clickMaleGenderRadio() {
-        this.getMaleGenderRadio().click();
+    return this;
+  }
 
-        return this;
-    }
+  enterFirstName(firstName) {
+    this.getFirstNameField().clear().type(firstName);
 
-    enterFirstName(firstName) {
-        this.getFirstNameField().clear().type(firstName);
+    return this;
+  }
 
-        return this;
-    }
+  enterLastName(lastName) {
+    this.getLastName().clear().type(lastName);
 
-    enterLastName(lastName) {
-        this.getLastName().clear().type(lastName);
+    return this;
+  }
 
-        return this;
-    }
+  enterEmail() {
+    this.getEmailField().clear().type(this.generateEmail());
+    return this;
+  }
 
-    enterEmail() {
-        this.getEmailField().clear().type(this.generateEmail());
-        return this;
-    }
+  enterPassword(password) {
+    this.getPasswordField().clear().type(password);
 
-    enterPassword(password) {
-        this.getPasswordField().clear().type(password);
+    return this;
+  }
 
-        return this;
-    }
+  enterConfirmPassword(password) {
+    this.getConfirmPasswordField().clear().type(password);
 
-    enterConfirmPassword(password) {
-        this.getConfirmPasswordField().clear().type(password);
+    return this;
+  }
 
-        return this;
-    }
+  clickRegisterButton() {
+    this.getRegisterButton().click();
 
-    clickRegisterButton() {
-        this.getRegisterButton().click();
+    return this;
+  }
 
-        return this;
-    }
-    
-    checkResultMessage(resultMessage) {
-        this.getResultMessage().invoke("text").then((text) => {
-            expect(resultMessage).to.eq(text.trim());
-        });
-    }
+  checkResultMessage(resultMessage) {
+    this.getResultMessage()
+      .invoke('text')
+      .then((text) => {
+        expect(resultMessage).to.eq(text.trim());
+      });
+  }
 
-    generateEmail() {
-        const timestamp = Date.now();
-        return `user${timestamp}@test.com`;
-    }
+  generateEmail() {
+    const timestamp = Date.now();
+    return `user${timestamp}@test.com`;
+  }
 }
 
 export default RegisterUserPage;

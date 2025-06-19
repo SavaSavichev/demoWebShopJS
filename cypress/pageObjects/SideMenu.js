@@ -1,14 +1,16 @@
-import CatalogPage from "./CatalogPage";
+import { CatalogPage } from './';
 
 class SideMenu {
-    getShoesButton = () => cy.get("div[class='block block-category-navigation'] li:nth-child(4) a:nth-child(1)");
+  getShoesButton = () =>
+    cy.get(
+      "div[class='block block-category-navigation'] li:nth-child(4) a:nth-child(1)",
+    );
 
-    clickShoesButton() {
-        this.getShoesButton().click();
+  clickShoesButton() {
+    this.getShoesButton().click();
 
-        return new CatalogPage();
-    }
-
+    return new CatalogPage();
+  }
 }
 
 export default SideMenu;

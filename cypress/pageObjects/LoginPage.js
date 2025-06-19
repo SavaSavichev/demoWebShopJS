@@ -1,29 +1,27 @@
-import MainPage from "./MainPage";
+import { MainPage } from './';
 
 class LoginPage {
+  getEmailField = () => cy.get('#Email');
+  getPasswordField = () => cy.get('#Password');
+  getLogInButton = () => cy.get("input[value='Log in']");
 
-    getEmailField = () => cy.get("#Email");
-    getPasswordField = () => cy.get("#Password");
-    getLogInButton = () => cy.get("input[value='Log in']");
+  enterEmail(email) {
+    this.getEmailField().type(email);
 
-    enterEmail(email) {
-        this.getEmailField().type(email);
+    return this;
+  }
 
-        return this;
-    }
+  enterPassword(password) {
+    this.getPasswordField().type(password);
 
-    enterPassword(password) {
-        this.getPasswordField().type(password);
+    return this;
+  }
 
-        return this;
-    }
+  clickLoginButton() {
+    this.getLogInButton().click();
 
-    clickLoginButton() {
-        this.getLogInButton().click();
-    
-        return new MainPage();
-    }
-
+    return new MainPage();
+  }
 }
 
 export default LoginPage;

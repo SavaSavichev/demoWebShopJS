@@ -1,5 +1,9 @@
 {
   "devDependencies": {
-    "cypress": "^14.4.1"
+    "cypress": "^14.4.1",
+    "prettier": "^3.5.3"
+  },
+  "scripts": {
+    "format": "prettier --write ."
   }
 }

@@ -1,64 +1,64 @@
-import CartPage from "./CartPage";
-import Header from "./Header";
-import SideMenu from "./SideMenu";
+import { CartPage, Header, SideMenu } from './';
 
 class WishlistPage {
+  constructor() {
+    this.header = new Header();
+    this.sideMenu = new SideMenu();
+  }
 
-    constructor() {
-        this.header = new Header();
-        this.sideMenu = new SideMenu();
-    }
+  getProductName = () => cy.get('td.product');
+  getRemoveCheckBox = () => cy.get("[name='removefromcart']");
+  getUpdateWishlistButton = () => cy.get("input[value='Update wishlist']");
+  getAddToCartCheckBox = () => cy.get('td.add-to-cart');
+  getAddToCartButton = () => cy.get("input[value='Add to cart']");
+  getEmptyMessage = () => cy.get('.wishlist-content');
+  getQuantityField = () => cy.get('.qty-input');
 
-    getProductName = () => cy.get("td.product");
-    getRemoveCheckBox = () => cy.get("[name='removefromcart']");
-    getUpdateWishlistButton = () => cy.get("input[value='Update wishlist']");
-    getAddToCartCheckBox = () => cy.get("td.add-to-cart");
-    getAddToCartButton = () => cy.get("input[value='Add to cart']");
-    getEmptyMessage = () => cy.get(".wishlist-content");
-    getQuantityField = () => cy.get(".qty-input");
-    
+  checkProductName(productName) {
+    this.getProductName()
+      .invoke('text')
+      .then((text) => {
+        expect(productName).to.eq(text.trim());
+      });
+  }
 
-    checkProductName(productName) {
-        this.getProductName().invoke("text").then((text) => {
-            expect(productName).to.eq(text.trim());
-        });
-    }
+  clickRemoveCheckBox() {
+    this.getRemoveCheckBox().click();
 
-    clickRemoveCheckBox() {
-        this.getRemoveCheckBox().click();
+    return this;
+  }
 
-        return this;
-    }
+  clickUpdateWishlistButton() {
+    this.getUpdateWishlistButton().click();
 
-    clickUpdateWishlistButton() {
-        this.getUpdateWishlistButton().click();
+    return this;
+  }
 
-        return this;
-    }
+  checkEmptyMessageText(messageText) {
+    this.getEmptyMessage()
+      .invoke('text')
+      .then((text) => {
+        expect(messageText).to.eq(text.trim());
+      });
+  }
 
-    checkEmptyMessageText(messageText) {
-        this.getEmptyMessage().invoke("text").then((text) => {
-            expect(messageText).to.eq(text.trim());
-        }); 
-    }
+  clickAddCartCheckBox() {
+    this.getAddToCartCheckBox().click();
 
-    clickAddCartCheckBox() {
-        this.getAddToCartCheckBox().click();
+    return this;
+  }
 
-        return this;
-    }
-    
-    clickAddToCartButton() {
-        this.getAddToCartButton().click();
+  clickAddToCartButton() {
+    this.getAddToCartButton().click();
 
-        return new CartPage();
-    }
+    return new CartPage();
+  }
 
-    setQuantity(quantity) {
-        this.getQuantityField().clear().type(quantity);
+  setQuantity(quantity) {
+    this.getQuantityField().clear().type(quantity);
 
-        return this;
-    }
+    return this;
+  }
 }
 
 export default WishlistPage;

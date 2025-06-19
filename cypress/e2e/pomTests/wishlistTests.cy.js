@@ -1,54 +1,52 @@
 /// <reference types="cypress" />
 
-import MainPage from "../../pageObjects/MainPage";
-import wishlistPageData from "../../fixtures/pom/wishlistPageData.json"
+import { MainPage } from '../../pageObjects';
+import { wishlistPageData } from '../../fixtures/pom';
 
-describe("Wishlist Page Tests", () => {
-    const mainPage = new MainPage();
+describe('Wishlist Page Tests', () => {
+  const mainPage = new MainPage();
 
-    it("Add item to wishlist", () => {
-        
-        mainPage
-            .header.clickCameraPhotoLinkTopMenu()
-            .clickSmartPhoneIcon()
-            .clickAddToWishlistButton()
-            .header.clickWishlist()
-            .checkProductName(wishlistPageData.productName);
-    });
+  it('Add item to wishlist', () => {
+    mainPage.header
+      .clickCameraPhotoLinkTopMenu()
+      .clickSmartPhoneIcon()
+      .clickAddToWishlistButton()
+      .header.clickWishlist()
+      .checkProductName(wishlistPageData.productName);
+  });
 
-    it("Delete item from wishlist", () => {
-        
-        mainPage
-            .header.clickCameraPhotoLinkTopMenu()
-            .clickSmartPhoneIcon()
-            .clickAddToWishlistButton()
-            .header.clickWishlist()
-            .clickRemoveCheckBox()
-            .clickUpdateWishlistButton()
-            .checkEmptyMessageText(wishlistPageData.messageText);
-    });
+  it('Delete item from wishlist', () => {
+    mainPage.header
+      .clickCameraPhotoLinkTopMenu()
+      .clickSmartPhoneIcon()
+      .clickAddToWishlistButton()
+      .header.clickWishlist()
+      .clickRemoveCheckBox()
+      .clickUpdateWishlistButton()
+      .checkEmptyMessageText(wishlistPageData.messageText);
+  });
 
-    it("Add item from wishlist to cart", () => {
-        
-        mainPage
-            .header.clickCameraPhotoLinkTopMenu()
-            .clickSmartPhoneIcon()
-            .clickAddToWishlistButton()
-            .header.clickWishlist()
-            .clickAddCartCheckBox()
-            .clickAddToCartButton()
-            .getProductName().should("have.text", wishlistPageData.productName);
-    });
+  it('Add item from wishlist to cart', () => {
+    mainPage.header
+      .clickCameraPhotoLinkTopMenu()
+      .clickSmartPhoneIcon()
+      .clickAddToWishlistButton()
+      .header.clickWishlist()
+      .clickAddCartCheckBox()
+      .clickAddToCartButton()
+      .getProductName()
+      .should('have.text', wishlistPageData.productName);
+  });
 
-    it("Increase Quantity", () => {
-        
-        mainPage
-            .header.clickCameraPhotoLinkTopMenu()
-            .clickSmartPhoneIcon()
-            .clickAddToWishlistButton()
-            .header.clickWishlist()
-            .setQuantity(wishlistPageData.quantity)
-            .clickUpdateWishlistButton()
-            .getQuantityField().should("have.value", wishlistPageData.quantity);
-    });
+  it('Increase Quantity', () => {
+    mainPage.header
+      .clickCameraPhotoLinkTopMenu()
+      .clickSmartPhoneIcon()
+      .clickAddToWishlistButton()
+      .header.clickWishlist()
+      .setQuantity(wishlistPageData.quantity)
+      .clickUpdateWishlistButton()
+      .getQuantityField()
+      .should('have.value', wishlistPageData.quantity);
+  });
 });
