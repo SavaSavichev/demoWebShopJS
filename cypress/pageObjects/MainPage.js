@@ -22,7 +22,7 @@ class MainPage {
     this.getPageTitle()
       .invoke('text')
       .then((text) => {
-        expect(text.trim()).to.eq(expectedText);
+        expect(expectedText).to.eq(text.trim());
       });
   }
 
