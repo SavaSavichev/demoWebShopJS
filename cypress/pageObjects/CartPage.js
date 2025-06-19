@@ -68,7 +68,7 @@ class CartPage {
   }
 
   clickCheckoutButton() {
-    this.getCheckoutButton().click();
+    this.getCheckoutButton().should('be.visible').click();
 
     return this;
   }
