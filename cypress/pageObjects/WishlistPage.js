@@ -12,7 +12,7 @@ class WishlistPage {
   getAddToCartCheckBox = () => cy.get('td.add-to-cart');
   getAddToCartButton = () => cy.get("input[value='Add to cart']");
   getEmptyMessage = () => cy.get('.wishlist-content');
-  getQuantityField = () => cy.get('.qty-input');
+  getQuantityField = () => cy.get('.qty-input', { timeout: 10000 });
 
   checkProductName(productName) {
     this.getProductName()
