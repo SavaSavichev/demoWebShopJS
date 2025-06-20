@@ -9,7 +9,7 @@ class WishlistPage {
   getProductName = () => cy.get("td[class='product']", { timeout: 10000 });
   getRemoveCheckBox = () => cy.get("[name='removefromcart']", { timeout: 10000 });
   getUpdateWishlistButton = () => cy.get("input[value='Update wishlist']");
-  getAddToCartCheckBox = () => cy.get('td.add-to-cart');
+  getAddToCartCheckBox = () => cy.get('td.add-to-cart', { timeout: 10000 });
   getAddToCartButton = () => cy.get("input[value='Add to cart']");
   getEmptyMessage = () => cy.get('.wishlist-content');
   getQuantityField = () => cy.get('.qty-input', { timeout: 10000 });
