@@ -6,7 +6,7 @@ class WishlistPage {
     this.sideMenu = new SideMenu();
   }
 
-  getProductName = () => cy.get("td[class='product']");
+  getProductName = () => cy.get("td[class='product']", { timeout: 10000 });
   getRemoveCheckBox = () => cy.get("[name='removefromcart']", { timeout: 10000 });
   getUpdateWishlistButton = () => cy.get("input[value='Update wishlist']");
   getAddToCartCheckBox = () => cy.get('td.add-to-cart');
