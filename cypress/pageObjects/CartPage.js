@@ -17,6 +17,7 @@ class CartPage {
   getWarningBoxText = () => cy.get('.ui-dialog-content');
 
   checkSizeFromAttributes(expectedSize) {
+    this.verifyOnCartPage();
     this.getItemAttributes()
       .should('be.visible')
       .invoke('text')
@@ -29,6 +30,7 @@ class CartPage {
   }
 
   checkColorFromAttributes(expectedColor) {
+    this.verifyOnCartPage();
     this.getItemAttributes()
       .should('be.visible')
       .invoke('text')

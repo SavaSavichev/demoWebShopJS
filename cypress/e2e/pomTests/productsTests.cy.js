@@ -7,7 +7,11 @@ describe('Product Page – Interactions and Validations', () => {
   const mainPage = new MainPage();
 
   it('displays Free Shipping label on product page', () => {
-    mainPage.clickOwnComputerLink().getFreeShipping().should('be.visible');
+    mainPage
+      .clickOwnComputerLink()
+      .verifyOnProductPage()
+      .getFreeShipping()
+      .should('be.visible');
   });
 
   it('returns to main page after clicking the logo', () => {

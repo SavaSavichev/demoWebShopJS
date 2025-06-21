@@ -17,6 +17,7 @@ class ProductPage {
   getAddToWishlistButton = () => cy.get('.add-to-wishlist-button');
 
   setSizeSelect(size) {
+    this.verifyOnProductPage();
     this.getSizeSelect().select(size);
 
     return this;
