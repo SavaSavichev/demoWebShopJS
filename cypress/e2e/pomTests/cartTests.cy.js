@@ -10,6 +10,7 @@ describe('Cart Page – User Interactions and Validations', () => {
     mainPage
       .clickLaptopAddToCartButton()
       .header.clickShoppingCart()
+      .verifyOnCartPage()
       .getProductName()
       .should('be.visible')
       .and('have.text', cartPageData.productName);
@@ -20,6 +21,7 @@ describe('Cart Page – User Interactions and Validations', () => {
       .clickLaptopLink()
       .clickAddCartButton()
       .header.clickShoppingCart()
+      .verifyOnCartPage()
       .getProductName()
       .should('be.visible')
       .and('have.text', cartPageData.productName);

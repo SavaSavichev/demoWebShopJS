@@ -45,6 +45,12 @@ class ProductPage {
 
     return this;
   }
+
+  verifyOnProductPage() {
+    cy.url().should('not.eq', 'https://demowebshop.tricentis.com/');
+
+    return this;
+  }
 }
 
 export default ProductPage;

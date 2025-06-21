@@ -41,6 +41,7 @@ class CartPage {
   }
 
   setQuantity(quantity) {
+    this.verifyOnCartPage();
     this.getQuantityInput().should('be.visible').clear().type(quantity);
 
     return this;
@@ -71,6 +72,7 @@ class CartPage {
   }
 
   clickCheckoutButton() {
+    this.verifyOnCartPage();
     this.getCheckoutButton().should('be.visible').click();
 
     return this;
@@ -83,6 +85,12 @@ class CartPage {
       .then((text) => {
         expect(warningBoxText).to.eq(text.trim());
       });
+  }
+
+  verifyOnCartPage() {
+    cy.url().should('include', '/cart');
+
+    return this;
   }
 }
 

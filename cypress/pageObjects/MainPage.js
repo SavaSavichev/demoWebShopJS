@@ -44,6 +44,12 @@ class MainPage {
 
     return this;
   }
+
+  verifyOnMainPage() {
+    cy.url().should('equal', 'https://demowebshop.tricentis.com/');
+
+    return this;
+  }
 }
 
 export default MainPage;
