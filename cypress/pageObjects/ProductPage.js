@@ -42,6 +42,7 @@ class ProductPage {
   }
 
   clickAddToWishlistButton() {
+    this.verifyOnProductPage();
     this.getAddToWishlistButton().should('be.visible').click();
 
     return this;

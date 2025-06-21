@@ -34,6 +34,7 @@ describe('Wishlist Page – Functionality and Interactions', () => {
       .header.clickWishlist()
       .clickAddCartCheckBox()
       .clickAddToCartButton()
+      .verifyOnCartPage()
       .getProductName()
       .should('be.visible')
       .and('have.text', wishlistPageData.productName);

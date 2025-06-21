@@ -15,6 +15,7 @@ class WishlistPage {
   getQuantityField = () => cy.get('.qty-input');
 
   checkProductName(productName) {
+    this.verifyOnWishlistPage();
     this.getProductName()
       .should('be.visible')
       .invoke('text')
@@ -24,12 +25,14 @@ class WishlistPage {
   }
 
   clickRemoveCheckBox() {
+    this.verifyOnWishlistPage();
     this.getRemoveCheckBox().should('be.visible').click();
 
     return this;
   }
 
   clickUpdateWishlistButton() {
+    this.verifyOnWishlistPage();
     this.getUpdateWishlistButton().should('be.visible').click();
 
     return this;
@@ -58,6 +61,12 @@ class WishlistPage {
 
   setQuantity(quantity) {
     this.getQuantityField().should('be.visible').clear().type(quantity);
+
+    return this;
+  }
+
+  verifyOnWishlistPage() {
+    cy.url().should('include', '/wishlist');
 
     return this;
   }
