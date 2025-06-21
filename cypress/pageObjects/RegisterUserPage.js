@@ -16,6 +16,7 @@ class RegisterUserPage {
   getResultMessage = () => cy.get('.result');
 
   clickMaleGenderRadio() {
+    this.verifyOnRegisterPage();
     this.getMaleGenderRadio().should('be.visible').click();
 
     return this;
@@ -68,6 +69,12 @@ class RegisterUserPage {
   generateEmail() {
     const timestamp = Date.now();
     return `user${timestamp}@test.com`;
+  }
+
+  verifyOnRegisterPage() {
+    cy.url().should('include', '/register');
+
+    return this;
   }
 }
 

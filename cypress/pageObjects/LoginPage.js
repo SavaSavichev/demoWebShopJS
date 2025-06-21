@@ -6,6 +6,7 @@ class LoginPage {
   getLogInButton = () => cy.get("input[value='Log in']");
 
   enterEmail(email) {
+    this.verifyOnLoginPage();
     this.getEmailField().should('be.visible').type(email);
 
     return this;
@@ -21,6 +22,12 @@ class LoginPage {
     this.getLogInButton().should('be.visible').click();
 
     return new MainPage();
+  }
+
+  verifyOnLoginPage() {
+    cy.url().should('include', '/login');
+
+    return this;
   }
 }
 
