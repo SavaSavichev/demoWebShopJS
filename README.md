@@ -14,7 +14,6 @@ This repository contains Cypress tests for the Demo Web Shop web application. Th
 
 - JavaScript
 - Cypress — end-to-end testing framework
-- Prettier — code formatter
 
 ---
 
@@ -49,25 +48,11 @@ npx cypress run
 
 ---
 
-## npm scripts
-
-- `npm run format` — formats code using Prettier
-
----
-
 ## Project structure
 
-- `cypress/` — Cypress tests and support files
+- `e2e/pomTests` — All test cases
+- `fixtures/pom` — Test data (JSON)
 - `pageObjects/` — Page Object Model classes with interaction methods
-- `.prettierrc` — Prettier configuration
-- `.prettierignore` — files and folders excluded from formatting
-
----
-
-## Useful links
-
-- [Cypress Documentation](https://docs.cypress.io)
-- [Prettier](https://prettier.io)
 
 ---
 
