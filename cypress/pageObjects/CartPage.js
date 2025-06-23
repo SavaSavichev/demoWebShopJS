@@ -9,7 +9,7 @@ class CartPage {
   getItemAttributes = () =>
     cy.get("td[class='product'] div[class='attributes']");
   getProductName = () => cy.get('.product-name');
-  getQuantityInput = () => cy.get(".qty-input");
+  getQuantityInput = () => cy.get('.qty-input');
   getUpdateQuantityButton = () => cy.get("input[name='updatecart']");
   getUnitItemPrice = () => cy.get('.product-unit-price');
   getTotalPrice = () => cy.get('.product-subtotal');

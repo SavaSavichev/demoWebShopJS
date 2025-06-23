@@ -35,7 +35,10 @@ class RegisterUserPage {
   }
 
   enterEmail() {
-    this.getEmailField().should('be.visible').clear().type(this.generateEmail());
+    this.getEmailField()
+      .should('be.visible')
+      .clear()
+      .type(this.generateEmail());
     return this;
   }
 

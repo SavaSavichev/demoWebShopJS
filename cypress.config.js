@@ -10,7 +10,6 @@ module.exports = defineConfig({
   },
   e2e: {
     baseUrl: 'https://demowebshop.tricentis.com/',
-    setupNodeEvents(on, config) {
-    },
+    setupNodeEvents(on, config) {},
   },
 });

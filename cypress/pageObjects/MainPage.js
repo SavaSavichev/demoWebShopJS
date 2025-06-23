@@ -19,7 +19,7 @@ class MainPage {
     );
 
   checkPageTitle(expectedText) {
-    this.verifyOnMainPage(); 
+    this.verifyOnMainPage();
     this.getPageTitle()
       .should('be.visible')
       .invoke('text')
